@@ -1,0 +1,50 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+  labels:
+    app: nginx
+  annotations:
+   another-autoscaler/start-time: "22 09 * * *"
+   another-autoscaler/stop-time: "23 09 * * *"
+   another-autoscaler/start-replicas: "2"
+   another-autoscaler/stop-replicas: "0"
+spec:
+  replicas: 0
+  selector:
+    matchLabels:
+       app: nginx
+  template:
+    metadata:
+       labels:
+         app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+        # env:
+        #    - name: another-autoscaler-start
+        #      valueFrom:
+        #          configMapKeyRef:  
+        #             name: cron
+        #             key: another-autoscaler/start-time
+        #    - name: another-autoscaler-stop
+        #      valueFrom:
+        #          configMapKeyRef:  
+        #             name: cron
+        #             key: another-autoscaler/stop-time
+        #    - name: another-autoscaler-start
+        #      valueFrom:
+        #          configMapKeyRef:  
+        #             name: cron
+        #             key: another-autoscaler/start-replicas
+        #    - name: another-autoscaler-stop
+        #      valueFrom:
+        #          configMapKeyRef:  
+        #             name: cron
+        #             key: another-autoscaler/stop-replicas
+
+ 
