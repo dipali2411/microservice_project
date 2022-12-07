@@ -1,5 +1,5 @@
-start = "22 09 * * *"
-stop = "23 09 * * *"
+start = "25 06 * * *"
+stop = "26 06 * * *"
 
 file = open('another-autoscaler-start.conf',"w")
 file.write(f'''
