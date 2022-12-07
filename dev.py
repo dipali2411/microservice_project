@@ -1,4 +1,4 @@
-start = "25 06 * * *"
+start = "25 17 * * *"
 stop = "26 06 * * *"
 
 file = open('another-autoscaler-start.conf',"w")
